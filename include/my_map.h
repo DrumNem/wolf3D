@@ -5,14 +5,21 @@
 ** Login   <perra_t@epitech.net>
 ** 
 ** Started on  Wed Dec 10 14:25:07 2014 tiphaine perra
-** Last update Fri Dec 19 17:58:06 2014 tiphaine perra
+** Last update Sun Dec 21 15:26:23 2014 tiphaine perra
 */
 
 #ifndef MY_MAP_
-# define MY_MAP_
+#define MY_MAP_
 #define PI 3.14159265359
+#define WIN_X   800
+#define WIN_Y   600
+#define MAP_X   12
+#define MAP_Y   10
+#define WIN_X   800
+#define WIN_Y   600
+#define SPD     0.15
 
-extern int      map[8][8];
+extern int      map[MAP_X][MAP_Y];
 
 typedef struct s_list
 {
@@ -37,5 +44,11 @@ typedef struct s_window
   int		height;
   int		width;
 }		t_wi;
+
+typedef struct s_all
+{
+  t_list	*pos;
+  t_wi		*wi;
+}		t_all;
 
 #endif

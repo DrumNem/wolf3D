@@ -5,10 +5,11 @@
 ## Login   <perra_t@epitech.net>
 ## 
 ## Started on  Tue Dec  2 13:48:43 2014 tiphaine perra
-## Last update Fri Dec 19 17:57:24 2014 tiphaine perra
+## Last update Fri Dec 19 18:03:02 2014 tiphaine perra
 ##
 
-SRC     =	wolf3d.c
+SRC     =	main.c \
+		wolf3d.c
 
 OBJS    =       $(SRC:.c=.o)
 
