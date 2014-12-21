@@ -5,7 +5,7 @@
 ** Login   <perra_t@epitech.net>
 ** 
 ** Started on  Fri Dec 19 18:01:22 2014 tiphaine perra
-** Last update Sun Dec 21 15:45:10 2014 tiphaine perra
+** Last update Sun Dec 21 16:48:28 2014 tiphaine perra
 */
 
 #include <math.h>
@@ -46,6 +46,12 @@ int		gere_key2(int keycode, t_all *all)
       all->pos->agl -= 0.2;
       eyes_vect(all->wi, all->pos);
     }
+  if (keycode == 65362 && map[(int)(all->pos->x + cos(all->pos->agl) * SPD)]
+      [(int)(all->pos->y + sin(all->pos->agl) * SPD)] == 2)
+    {
+      my_printf("Tadaaaaaaaaaam !! :3 \n");
+      exit(1);
+    }
   return (0);
 }
 
@@ -53,7 +59,7 @@ int		gere_key(int keycode, t_all *all)
 {
   if (keycode == 65362 &&
       map[(int)(all->pos->x + cos(all->pos->agl) * SPD)]
-	  [(int)(all->pos->y + sin(all->pos->agl) * SPD)] == 0)
+      [(int)(all->pos->y + sin(all->pos->agl) * SPD)] == 0)
     {
       all->pos->y += sin(all->pos->agl) * SPD;
       all->pos->x += cos(all->pos->agl) * SPD;
@@ -68,7 +74,7 @@ int		gere_key(int keycode, t_all *all)
       eyes_vect(all->wi, all->pos);
     }
   if (keycode == 65307)
-    exit (0);
+    exit(1);
   gere_key2(keycode, all);
   return (0);
 }
@@ -86,8 +92,8 @@ int		main()
   t_all		*all;
 
   if ((all = malloc(sizeof(t_all))) == NULL ||
-      (pos = malloc(sizeof(t_list))) == NULL
-      || (wi = malloc(sizeof(t_wi))) == NULL ||
+      (pos = malloc(sizeof(t_list))) == NULL ||
+      (wi = malloc(sizeof(t_wi))) == NULL ||
       (wi->mlx_ptr = mlx_init()) == NULL)
     return (0);
   all->pos = pos;
