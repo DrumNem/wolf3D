@@ -5,7 +5,7 @@
 ** Login   <perra_t@epitech.net>
 ** 
 ** Started on  Wed Dec 10 14:40:28 2014 tiphaine perra
-** Last update Sun Dec 21 15:46:28 2014 tiphaine perra
+** Last update Sun Dec 21 16:17:25 2014 tiphaine perra
 */
 
 #include <mlx.h>
@@ -19,9 +19,9 @@ int		map[MAP_X][MAP_Y]=
     {1, 0, 0, 0, 0, 0, 0, 1, 0, 1},
     {1, 1, 0, 1, 1, 1, 0, 1, 0, 1},
     {1, 1, 0, 1, 0, 0, 0, 1, 0, 1},
-    {1, 0, 0, 1, 0, 1, 1, 0, 0, 1},
-    {1, 0, 0, 0, 0, 0, 1, 0, 0, 1},
-    {1, 1, 0, 0, 0, 1, 1, 1, 1, 1},
+    {1, 0, 0, 1, 0, 1, 1, 2, 0, 1},
+    {1, 0, 0, 0, 0, 0, 1, 1, 0, 1},
+    {1, 1, 0, 0, 0, 0, 1, 1, 1, 1},
     {1, 0, 1, 0, 1, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 1, 1, 1, 0, 0, 1},
     {1, 0, 1, 0, 0, 0, 1, 1, 0, 1},
@@ -53,7 +53,7 @@ void		when_wall(t_wi *wi, t_list *po, float x, float y)
 
   a = po->x;
   z = po->y;
-  while (a >= 0 && a < MAP_Y && z >= 0 && z < MAP_Y && map[(int)a][(int)z] != 1)
+  while (a >= 0 && a < MAP_X && z >= 0 && z < MAP_Y && map[(int)a][(int)z] == 0)
     {
       a += x / 1000;
       z += y / 1000;
@@ -66,7 +66,10 @@ void		when_wall(t_wi *wi, t_list *po, float x, float y)
   start_y = WIN_Y / 2 - wi->height / 2;
   end_y = start_y + wi->height;
   while (start_y <= end_y)
-    my_pixel_put_to_image(po->x2, start_y++, wi, 0x458117);
+    if (map[(int)a][(int)z] == 1)
+      my_pixel_put_to_image(po->x2, start_y++, wi, 0x6F964F);
+    else
+      my_pixel_put_to_image(po->x2, start_y++, wi, 0x00F9FF);
 }
 
 void		eyes_vect(t_wi *wi, t_list *pos)
