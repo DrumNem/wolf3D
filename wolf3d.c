@@ -5,7 +5,7 @@
 ** Login   <perra_t@epitech.net>
 ** 
 ** Started on  Wed Dec 10 14:40:28 2014 tiphaine perra
-** Last update Sun Dec 21 16:22:27 2014 tiphaine perra
+** Last update Tue May 12 17:14:17 2015 tiphaine perra
 */
 
 #include <mlx.h>
@@ -28,6 +28,8 @@ int		map[MAP_X][MAP_Y]=
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
   };
 
+// remplis pixel par pixel une zone de la couleur demandee
+
 void		my_pixel_put_to_image(int x, int y, t_wi *wi, int color)
 {
   int		bpp;
@@ -43,6 +45,8 @@ void		my_pixel_put_to_image(int x, int y, t_wi *wi, int color)
       data[i] = color;
     }
 }
+
+//detection des murs
 
 void		when_wall(t_wi *wi, t_list *po, float x, float y)
 {
@@ -67,10 +71,12 @@ void		when_wall(t_wi *wi, t_list *po, float x, float y)
   end_y = start_y + wi->height;
   while (start_y <= end_y)
     if (map[(int)a][(int)z] == 1)
-      my_pixel_put_to_image(po->x2, start_y++, wi, 0x6F964F);
+      my_pixel_put_to_image(po->x2, start_y++, wi, 0x606060);
     else
-      my_pixel_put_to_image(po->x2, start_y++, wi, 0x00F9FF);
+      my_pixel_put_to_image(po->x2, start_y++, wi, 0xFF0000);
 }
+
+//calcule du champs de vision
 
 void		eyes_vect(t_wi *wi, t_list *pos)
 {

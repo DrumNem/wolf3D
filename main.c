@@ -5,7 +5,7 @@
 ** Login   <perra_t@epitech.net>
 ** 
 ** Started on  Fri Dec 19 18:01:22 2014 tiphaine perra
-** Last update Sun Dec 21 16:48:28 2014 tiphaine perra
+** Last update Tue May 12 17:07:48 2015 tiphaine perra
 */
 
 #include <math.h>
@@ -25,14 +25,16 @@ void		color_win(t_wi *wi)
       while (y <= WIN_Y)
 	{
 	  if (y <= WIN_Y / 2)
-	    my_pixel_put_to_image(x, y, wi, 0xE7AFF7);
+	    my_pixel_put_to_image(x, y, wi, 0x87CEFA);
 	  if (y >= WIN_Y / 2 && y <= WIN_Y)
-	    my_pixel_put_to_image(x, y, wi, 0x561E1E);
+	    my_pixel_put_to_image(x, y, wi, 0x3A9D23);
 	  y++;
 	}
       x++;
     }
 }
+
+//gestion des touches directionnelles, et [echap]
 
 int		gere_key2(int keycode, t_all *all)
 {
