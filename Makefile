@@ -5,7 +5,7 @@
 ## Login   <perra_t@epitech.net>
 ## 
 ## Started on  Tue Dec  2 13:48:43 2014 tiphaine perra
-## Last update Fri Dec 19 18:03:02 2014 tiphaine perra
+## Last update Wed Feb 11 14:24:44 2015 tiphaine perra
 ##
 
 SRC     =	main.c \
@@ -27,13 +27,13 @@ NAME    =       wolf3d
 
 all:            $(NAME)
 
-$(NAME):        $(OBJS)
+$(NAME)	:        $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LDLIBS) -lm $(IFLAGS)
 
-clean:
+clean	:
 	$(RM) $(OBJS)
 
-fclean:         clean
+fclean	:	clean
 	$(RM) $(NAME)
 
-re:             fclean all
+re	:	fclean all
